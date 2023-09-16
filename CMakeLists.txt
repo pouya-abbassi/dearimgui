@@ -42,9 +42,11 @@ add_library(imgui STATIC
   ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp)
 
 target_link_libraries(imgui PRIVATE glfw OpenGL::GL)
+target_link_options(imgui PUBLIC "-fuse-ld=lld")
 target_compile_definitions(imgui PRIVATE IMGUI_IMPL_OPENGL_LOADER)
 
 target_include_directories(imgui PUBLIC ${imgui_SOURCE_DIR} ${imgui_SOURCE_DIR}/backends)
 
 add_executable(main main.cpp)
 target_link_libraries(main imgui)
+target_link_options(main PRIVATE "-fuse-ld=lld")
