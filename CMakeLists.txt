@@ -75,4 +75,7 @@ if (EMSCRIPTEN)
     PRIVATE -sallow_memory_growth=1
     PRIVATE -sno_exit_runtime=0
     PRIVATE -sassertions=1)
+else()
+  add_custom_command(TARGET main POST_BUILD
+    COMMAND ${CMAKE_STRIP} main)
 endif()
