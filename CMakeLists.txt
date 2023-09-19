@@ -62,6 +62,8 @@ target_link_options(main PRIVATE "-fuse-ld=lld")
 
 if (EMSCRIPTEN)
   set_target_properties(main PROPERTIES
+    OUTPUT_NAME "index"
+    SUFFIX ".html"
     RUNTIME_OUTPUT_DIRECTORY "web")
   set(HTML ${imgui_SOURCE_DIR}/examples/libs/emscripten/shell_minimal.html)
   target_link_options(main PRIVATE "-sUse_GLFW=3"
